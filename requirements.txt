@@ -1,0 +1,11 @@
+openai>=1.0.0
+python-dotenv>=1.0.0
+gTTS
+SpeechRecognition
+pyaudio
+rapidfuzz
+requests
+spacy
+numpy
+setuptools
+wheel
