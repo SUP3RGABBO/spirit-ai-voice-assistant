@@ -4,6 +4,9 @@ import datetime
 from config import MEMORY_FILE
 
 
+os.makedirs(os.path.dirname(MEMORY_FILE), exist_ok=True)
+
+
 def load_memory():
     if not os.path.exists(MEMORY_FILE):
         return {

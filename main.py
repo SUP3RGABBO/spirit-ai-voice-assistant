@@ -1,9 +1,20 @@
+import os
 import time
 import random
 import threading
 
 # Config
 import config
+
+os.makedirs(config.DATA_FOLDER, exist_ok=True)
+
+if not os.path.exists(config.MEMORY_FILE):
+    with open(config.MEMORY_FILE, "w", encoding="utf-8") as f:
+        f.write("{}")
+
+if not os.path.exists(config.LOG_FILE):
+    with open(config.LOG_FILE, "w", encoding="utf-8") as f:
+        f.write("")
 
 # Core
 from core.tts import speak_text, speak_async_queue
