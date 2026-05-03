@@ -26,7 +26,7 @@ def handle_voice_command(text, events):
         return True
 
     elif intent == "set_reminder":
-        events.set_reminder(entities["text"], entities["time"])
+        events.set_reminder(entities["message"], entities["time"])
         return True
 
     elif intent == "weather":
