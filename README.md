@@ -96,6 +96,16 @@ Install the required dependencies:
 pip install -r requirements.txt
 ```
 
+## spaCy Model Setup
+
+The project uses spaCy for entity extraction and natural language processing.
+
+After installing dependencies, you must download the English language model:
+
+```bash
+python -m spacy download en_core_web_sm
+```
+
 ## Sounds Setup
 
 The project uses a `sounds/` directory to store audio files such as the ringtone used for alarms and timers.
