@@ -23,12 +23,16 @@ A modular AI voice assistant built with Python and Raspberry Pi, featuring real-
 
 The project is organized into independent modules to keep the assistant scalable, maintainable, and easy to expand.
 
-- `core/` → speech recognition, text-to-speech, wake word detection, and voice logging
-- `ai/` → ChatGPT integration, prompts, and conversation memory
-- `brain/` → intent recognition, entity extraction, and command handling
-- `services/` → weather service, timers, alarms, reminders, and system utilities
-- `hardware/` → Raspberry Pi hardware interaction such as LEDs and audio devices
-- `data/` → runtime-generated memory and log files
+- `main.py` → Entry point of the assistant
+- `config.py` → Global configuration, API keys, device setup
+
+- `core/` → Speech recognition, text-to-speech, wake word detection, logging
+- `ai/` → ChatGPT integration, prompts, conversation memory
+- `brain/` → Intent recognition, entity extraction, command handling
+- `services/` → Timers, alarms, reminders, weather, system utilities
+- `hardware/` → Raspberry Pi hardware control (LEDs, audio devices)
+- `data/` → Runtime-generated memory and logs
+- `sounds/` → Audio files (ringtone and sound effects)
 
 
 ## Hardware Requirements
@@ -92,6 +96,21 @@ Install the required dependencies:
 pip install -r requirements.txt
 ```
 
+## Sounds Setup
+
+The project uses a `sounds/` directory to store audio files such as the ringtone used for alarms and timers.
+
+If the folder does not exist, you must create it manually in the root directory of the project:
+
+```bash
+mkdir sounds
+```
+Then place your desired audio file inside this folder.
+The system expects the ringtone file to be located at:
+RINGTONE_PATH = os.path.join(BASE_DIR, "sounds", "ringtone.wav")
+You can replace this file with any custom sound, as long as the filename and format match the configuration in config.py.
+
+
 ## Environment Variables
 
 Create a `.env` file in the root directory of the project and add the following variables:
@@ -122,7 +141,7 @@ Audio input and output are handled through ALSA.
 The system uses device indexing defined inside the configuration file to select the correct microphone and speaker.
 
 Manual ALSA configuration was performed to ensure stable default routing for both USB microphone input and USB speaker output.
-
+Ensure that audio device indexes defined in `config.py` match your hardware configuration.
 ### Speech Recognition Dependencies
 
 The voice recognition system relies on:
