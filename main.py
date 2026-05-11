@@ -1,3 +1,22 @@
+"""
+Main runtime orchestrator for the Spirit AI Voice Assistant.
+
+This file coordinates the entire assistant pipeline, including:
+- wake word detection and activation flow
+- speech-to-text input processing
+- voice command handling and intent routing
+- AI conversation management using ChatGPT (streaming and fallback modes)
+- text-to-speech output generation
+- hardware feedback integration (LED and audio devices)
+- background event system execution
+
+It acts as the central runtime loop that continuously listens,
+processes, and responds to user interactions in real time.
+
+The system is designed as a modular voice assistant architecture
+with asynchronous components and persistent conversational state.
+"""
+
 import os
 import time
 import random
@@ -41,7 +60,7 @@ from services.events import Events
 from hardware.led import led_flash_on_wakeword
 
 
-# ---------------- STARTUP ----------------
+
 
 intro_conv = chatgpt_conversation(intro_prompt)
 intro_text = intro_conv[-1]["content"]
@@ -50,13 +69,13 @@ print(f"🤖 Assistant: {intro_text}\n")
 speak_text(intro_text)
 
 
-# ---------------- CONVERSATION STATE ----------------
+
 
 interaction_counter = 0
 conversation = [system_prompt]
 
 
-# ---------------- EVENTS ----------------
+
 
 events = Events()
 
@@ -64,7 +83,7 @@ thread_events = threading.Thread(target=events.check_events, daemon=True)
 thread_events.start()
 
 
-# ---------------- MAIN LOOP ----------------
+
 
 while True:
     print(f"Say {config.assistant_name} to start...")
@@ -104,16 +123,16 @@ while True:
         print(f"You said: {user_text}")
         append_to_log(f"You: {user_text}")
 
-        # ---------------- VOICE COMMANDS ----------------
+
         if handle_voice_command(user_text, events):
             continue
 
-        # ---------------- THINKING TRIGGERS ----------------
+
         if any(word in user_text.lower() for word in thinking_triggers):
             phrase = random.choice(thinking_phrases)
             speak_async_queue(phrase)
 
-        # ---------------- CHATGPT ----------------
+
         conversation.append({'role': 'user', 'content': user_text})
 
         stream = chatgpt_stream(conversation)

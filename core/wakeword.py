@@ -1,3 +1,16 @@
+"""
+Wake word detection module for activating the assistant.
+
+This module is responsible for detecting activation phrases
+in user speech input using fuzzy string matching.
+
+It allows flexibility in recognition by tolerating variations
+and minor transcription errors through similarity scoring.
+
+The wake word check determines when the assistant should
+switch from passive listening to active command mode.
+"""
+
 from rapidfuzz import fuzz
 
 WAKE_WORDS = ["spirit", "hey spirit"]

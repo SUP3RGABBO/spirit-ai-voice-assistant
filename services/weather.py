@@ -1,8 +1,21 @@
+"""
+Weather service module for location-based weather retrieval.
+
+This module provides:
+- extraction of city names from natural language input
+- fuzzy matching against a predefined global city database
+- conversion of city names into API-compatible location strings
+- retrieval of weather data from an external weather API
+
+It handles fallback cases and returns natural language responses
+ready to be used by the text-to-speech system.
+"""
+
 import requests
 from difflib import get_close_matches
 from config import weather_api_key, BASE_WEATHER_URL
 
-# City -> ISO country code mapping
+
 CITIES_COUNTRIES = {
     # Italy
     "rome": "IT",
@@ -234,15 +247,15 @@ def extract_city(text):
     words = text_lower.split()
     city_list = list(CITIES_COUNTRIES.keys())
 
-    # Check each word or pair of words for match
+
     for i in range(len(words)):
-        # Single word
+
         match = get_close_matches(words[i], city_list, n=1, cutoff=0.7)
         if match:
             city_name = match[0]
             return f"{city_name},{CITIES_COUNTRIES[city_name]}"
 
-        # Two words together (for compound cities like New York)
+
         if i < len(words) - 1:
             combined = words[i] + " " + words[i + 1]
             match = get_close_matches(combined, city_list, n=1, cutoff=0.7)
@@ -250,7 +263,7 @@ def extract_city(text):
                 city_name = match[0]
                 return f"{city_name},{CITIES_COUNTRIES[city_name]}"
 
-    # Safe fallback
+
     return "rome,IT"
 
 

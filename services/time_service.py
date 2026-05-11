@@ -1,3 +1,13 @@
+"""
+Simple time service for voice responses.
+
+This module retrieves the current system time and formats it
+into a natural spoken response using the text-to-speech system.
+
+It is used by the assistant to answer time-related queries
+in a human-friendly spoken format.
+"""
+
 import datetime
 from core.tts import speak_text
 

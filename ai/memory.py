@@ -1,3 +1,16 @@
+"""
+Manages persistent memory storage for the assistant.
+
+This module is responsible for:
+- loading and initializing memory from disk
+- saving updated memory state
+- storing conversation history with timestamps
+- providing recent conversation context for the AI
+
+Memory is stored in a JSON file and is used to give the assistant
+continuity across sessions (e.g., reminders, alarms, and chat history).
+"""
+
 import os
 import json
 import datetime

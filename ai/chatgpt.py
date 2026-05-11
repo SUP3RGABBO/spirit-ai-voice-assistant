@@ -1,3 +1,18 @@
+"""
+Handles all communication with the OpenAI API.
+
+This module is responsible for:
+- sending the conversation to the model
+- receiving assistant responses
+- managing real-time streaming output
+- splitting the response into sentences for TTS processing
+
+Streaming is used to allow the assistant to start speaking
+while the response is still being generated, reducing perceived latency
+during the interaction.
+"""
+
+
 import re
 import requests
 import config

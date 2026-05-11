@@ -1,3 +1,22 @@
+"""
+Event management and scheduling system for the assistant.
+
+This module is responsible for handling time-based events such as:
+- timers
+- alarms
+- reminders
+
+It continuously monitors active events in a background loop
+and triggers actions when conditions are met.
+
+The system integrates:
+- persistent memory storage
+- voice feedback via TTS
+- hardware audio notifications
+
+This acts as the assistant's internal scheduler and time-based engine.
+"""
+
 import time
 import datetime
 import threading

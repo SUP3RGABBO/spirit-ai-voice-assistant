@@ -1,3 +1,15 @@
+"""
+Simple logging utility for voice interaction tracking.
+
+This module handles persistent logging of assistant interactions
+by appending text entries to a log file.
+
+It is mainly used for:
+- debugging voice interactions
+- tracking conversation history
+- storing lightweight runtime logs for later analysis
+"""
+
 import os
 from config import LOG_FILE
 

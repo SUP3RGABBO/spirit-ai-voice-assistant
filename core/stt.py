@@ -1,8 +1,25 @@
+"""
+Speech-to-text module for voice input processing.
+
+This module handles audio capture from the microphone and converts
+spoken language into text using speech recognition services.
+
+It provides two main modes:
+- activation listening (short, low-latency detection)
+- command listening (longer user input processing)
+
+The recognizer is tuned for real-time interaction with optimized
+thresholds to reduce noise sensitivity and improve responsiveness.
+
+It also handles network and recognition errors gracefully,
+ensuring the assistant remains stable during voice interaction.
+"""
+
 import speech_recognition as sr
 from config import MIC_INDEX
 from core.tts import speak_async_queue
 
-# ---------------- SPEECH RECOGNIZER ----------------
+
 recognizer = sr.Recognizer()
 recognizer.energy_threshold = 300
 recognizer.dynamic_energy_threshold = False

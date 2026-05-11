@@ -1,8 +1,23 @@
+"""
+Extracts structured entities from natural language input.
+
+This module processes user text based on the detected intent
+and extracts relevant parameters needed for command execution.
+
+It uses a hybrid approach combining:
+- spaCy NLP for linguistic processing
+- regex patterns for structured data extraction
+- heuristic rules for fallback handling
+
+The extracted entities are used by the command handler
+to execute actions such as timers, alarms, reminders, and weather queries.
+"""
+
 import re
 import spacy
 from services.weather import extract_city
 
-# ------- Spacy ------
+
 nlp = spacy.load("en_core_web_sm")
 
 

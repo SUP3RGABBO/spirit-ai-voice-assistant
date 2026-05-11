@@ -1,3 +1,16 @@
+"""
+Simple rule-based intent recognition module.
+
+This module classifies user input into predefined intents
+using lightweight regex pattern matching.
+
+It acts as the first step of the NLP pipeline and determines
+which system component should handle the request.
+
+The approach is heuristic-based and designed for fast
+real-time voice interaction rather than deep language understanding.
+"""
+
 import re
 
 

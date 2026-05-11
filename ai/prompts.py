@@ -1,3 +1,16 @@
+"""
+Defines prompts, phrases, and behavioral triggers for the assistant.
+
+This module contains:
+- startup and continuation phrases for natural interaction
+- thinking phrases used during processing delays
+- keyword-based triggers that detect when a response requires deeper reasoning
+- system and intro prompts used to define the assistant personality and behavior
+
+It controls how the assistant sounds and reacts during conversations,
+ensuring a more natural and human-like interaction flow.
+"""
+
 from config import assistant_name
 
 starting_phrases = [

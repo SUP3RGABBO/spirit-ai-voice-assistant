@@ -1,3 +1,18 @@
+"""
+Hardware LED control module for visual feedback.
+
+This module manages LED effects through an external hardware interface,
+providing visual indicators for assistant states and events.
+
+It supports:
+- setting LED color and brightness
+- triggering temporary visual effects
+- non-blocking execution using separate processes
+
+It is mainly used to signal system activity such as wake word detection
+or assistant activation states.
+"""
+
 import time
 import subprocess
 import multiprocessing

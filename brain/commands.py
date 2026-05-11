@@ -1,3 +1,19 @@
+"""
+Central command handler for voice interactions.
+
+This module acts as the bridge between speech input and system actions.
+It processes recognized intents and routes them to the appropriate services.
+
+Responsibilities include:
+- interpreting user intent from natural language input
+- extracting relevant entities from the command
+- triggering hardware and software actions based on intent
+- coordinating responses through TTS when needed
+
+This is the main execution layer that connects NLP processing
+with real system behavior.
+"""
+
 from brain.intent import recognize_intent
 from brain.entities import extract_entities
 from hardware.audio_device import stop_ringtone

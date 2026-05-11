@@ -1,3 +1,22 @@
+"""
+Text-to-Speech (TTS) engine for voice output generation.
+
+This module is responsible for converting text into spoken audio
+and playing it through the configured audio device.
+
+It supports two execution modes:
+- synchronous speech playback for immediate responses
+- asynchronous queued speech processing for non-blocking output
+
+The audio pipeline uses:
+- gTTS for speech synthesis
+- ffmpeg for audio format conversion
+- system audio player for output playback
+
+A background worker thread processes queued speech requests
+to ensure smooth and non-blocking voice interaction.
+"""
+
 import os
 import tempfile
 import subprocess
@@ -6,7 +25,7 @@ import queue
 from gtts import gTTS
 from config import SPEAKER_DEVICE
 
-# ---------------- AUDIO QUEUE ----------------
+
 audio_queue = queue.Queue()
 
 
@@ -32,7 +51,7 @@ def audio_worker():
         audio_queue.task_done()
 
 
-# Start audio worker thread
+
 threading.Thread(target=audio_worker, daemon=True).start()
 
 
