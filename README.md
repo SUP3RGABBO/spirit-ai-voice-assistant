@@ -2,7 +2,7 @@
 
 A modular AI voice assistant built with Python and Raspberry Pi, featuring real-time speech recognition, ChatGPT integration, wake word detection, hardware interaction, and event management.
 
-## Features
+
 
 ## Features
 
@@ -30,7 +30,6 @@ The project is organized into independent modules to keep the assistant scalable
 - `hardware/` → Raspberry Pi hardware interaction such as LEDs and audio devices
 - `data/` → runtime-generated memory and log files
 
-## Hardware Requirements
 
 ## Hardware Requirements
 
