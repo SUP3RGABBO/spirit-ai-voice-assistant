@@ -2,6 +2,14 @@
 
 A modular AI voice assistant built with Python and Raspberry Pi, featuring real-time speech recognition, ChatGPT integration, wake word detection, hardware interaction, and event management.
 
+## Watch the Project in Action
+
+Spirit AI Voice Assistant is not just a codebase — it is the result of months of design, hardware integration, and real-world testing on Raspberry Pi.
+
+Full storytelling video:
+
+https://youtu.be/e-KraYZ5g-s?si=X4ASmdifrRhb1dqd
+
 
 
 ## Features
