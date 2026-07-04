@@ -4,7 +4,7 @@ A modular AI voice assistant built with Python and Raspberry Pi, featuring real-
 
 ## Watch the Project in Action
 
-Spirit AI Voice Assistant is not just a codebase — it is the result of months of design, hardware integration, and real-world testing on Raspberry Pi.
+Spirit AI Voice Assistant is not just a codebase. It is the result of one year of design, hardware integration, and real-world testing on Raspberry Pi.
 
 Full storytelling video:
 
